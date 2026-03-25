@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LegalSetu Story Review</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+  <section class="admin-shell">
+    <div class="section-header admin-header">
+      <div class="section-tag">Admin Review</div>
+      <h2>Moderate Community Stories</h2>
+      <p>Approve, reject, feature, or delete public story submissions.</p>
+    </div>
+
+    <div class="admin-key-row">
+      <input type="password" id="adminKey" placeholder="Enter admin key" />
+      <button class="btn-primary" onclick="loadStoriesForAdmin()">Load Submissions</button>
+    </div>
+
+    <div id="adminStatus" class="story-form-status"></div>
+    <div id="adminStories" class="admin-stories-list"></div>
+  </section>
+
+  <script>
+    async function loadStoriesForAdmin() {
+      const key = document.getElementById('adminKey').value.trim();
+      const status = document.getElementById('adminStatus');
+      const list = document.getElementById('adminStories');
+
+      if (!key) {
+        status.textContent = 'Enter the admin key first.';
+        status.className = 'story-form-status is-error';
+        return;
+      }
+
+      status.textContent = 'Loading story submissions...';
+      status.className = 'story-form-status is-loading';
+      list.innerHTML = '';
+
+      try {
+        const res = await fetch('http://localhost:5000/api/admin/stories', {
+          headers: { 'x-admin-key': key }
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || 'Could not load story submissions.');
+        }
+
+        const stories = Array.isArray(data.stories) ? data.stories : [];
+
+        if (!stories.length) {
+          status.textContent = 'No submissions yet.';
+          status.className = 'story-form-status is-success';
+          list.innerHTML = '<div class="story-empty">No story submissions available right now.</div>';
+          return;
+        }
+
+        status.textContent = 'Story submissions loaded.';
+        status.className = 'story-form-status is-success';
+        list.innerHTML = stories.map(story => `
+          <article class="admin-story-card">
+            <div class="admin-story-meta">
+              <div>
+                <h3>${story.name || 'Anonymous Citizen'}</h3>
+                <p>${story.city || 'India'} • ${story.category}</p>
+              </div>
+              <div class="admin-story-badges">
+                <span class="story-badge">${story.status}</span>
+                ${story.featured ? '<span class="story-status">Featured</span>' : ''}
+              </div>
+            </div>
+            ${story.outcomeStatus ? `<div class="story-outcome-status">${story.outcomeStatus}</div>` : ''}
+            <div class="story-block"><strong>Problem</strong><p>${story.problem}</p></div>
+            <div class="story-block"><strong>Action Taken</strong><p>${story.actionTaken}</p></div>
+            <div class="story-block"><strong>Outcome</strong><p>${story.outcome}</p></div>
+            ${story.lesson ? `<div class="story-block story-block-lesson"><strong>Key Lesson</strong><p>${story.lesson}</p></div>` : ''}
+            <div class="admin-story-actions">
+              <button onclick="updateStory('${story.id}', 'approved')">Approve</button>
+              <button onclick="updateStory('${story.id}', 'rejected')" class="admin-btn-muted">Reject</button>
+              <button onclick="toggleFeatured('${story.id}', ${story.featured ? 'false' : 'true'})" class="admin-btn-alt">${story.featured ? 'Unfeature' : 'Feature'}</button>
+              <button onclick="deleteStory('${story.id}')" class="admin-btn-danger">Delete</button>
+            </div>
+          </article>
+        `).join('');
+      } catch (error) {
+        status.textContent = error.message || 'Could not load story submissions.';
+        status.className = 'story-form-status is-error';
+      }
+    }
+
+    async function updateStory(id, newStatus) {
+      const key = document.getElementById('adminKey').value.trim();
+      if (!key) return;
+
+      await fetch(`http://localhost:5000/api/admin/stories/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-key': key
+        },
+        body: JSON.stringify({ status: newStatus })
+      });
+
+      loadStoriesForAdmin();
+    }
+
+    async function toggleFeatured(id, featured) {
+      const key = document.getElementById('adminKey').value.trim();
+      if (!key) return;
+
+      await fetch(`http://localhost:5000/api/admin/stories/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-key': key
+        },
+        body: JSON.stringify({ featured })
+      });
+
+      loadStoriesForAdmin();
+    }
+
+    async function deleteStory(id) {
+      const key = document.getElementById('adminKey').value.trim();
+      if (!key) return;
+
+      await fetch(`http://localhost:5000/api/admin/stories/${id}`, {
+        method: 'DELETE',
+        headers: { 'x-admin-key': key }
+      });
+
+      loadStoriesForAdmin();
+    }
+  </script>
+</body>
+</html>

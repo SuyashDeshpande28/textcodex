@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Right to Equality (Article 14)",
+    "description": "Ensures equality before the law and equal protection of the laws within the territory of India.",
+    "official_link": "https://indiacode.nic.in/show-data?actid=AC_CEN_5_23_00001_195026_1517807328947&type=act&sectionId=14",
+    "case": {
+      "name": "Indira Sawhney vs Union of India (1992)",
+      "summary": "The Supreme Court upheld 27% reservation for OBCs and defined the concept of 'creamy layer', balancing equality and social justice.",
+      "link": "https://main.sci.gov.in/judgments"
+    }
+  },
+  {
+    "title": "Right to Information Act, 2005",
+    "description": "Empowers citizens to seek information from public authorities to promote transparency and accountability.",
+    "official_link": "https://rti.gov.in/",
+    "pdf": "docs/RTI_Act_2005.pdf",
+    "case": {
+      "name": "CBSE vs Aditya Bandopadhyay (2011)",
+      "summary": "The Supreme Court ruled that students can seek their evaluated answer sheets under the RTI Act.",
+      "link": "https://main.sci.gov.in/judgments"
+    }
+  }
+]

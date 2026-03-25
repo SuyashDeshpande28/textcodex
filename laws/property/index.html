@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LegalSetu | Property Laws</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<header>
+  <div class="logo" onclick="window.location.href='../../index.html'" style="cursor:pointer;">
+    <div class="logo-icon">&#9878;&#65039;</div>
+    <div class="logo-text">
+      <span class="logo-main">Legal<span class="accent">Setu</span></span>
+      <span class="logo-sub">&#2344;&#2381;&#2351;&#2366;&#2351; &#2325;&#2368; &#2323;&#2352; &#2360;&#2375;&#2340;&#2369;</span>
+    </div>
+  </div>
+  <button class="nav-toggle" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav id="site-nav">
+    <a href="../../index.html">Home</a>
+    <a href="../">Laws</a>
+    <a href="../../numbers/">Numbers</a>
+    <a href="../../index.html#lawyers">Find Lawyer</a>
+  </nav>
+  <div class="header-right">
+    <a href="../../numbers/" class="emergency-call">
+      <span class="pulse-dot"></span>
+      &#128222; Emergency Legal Help
+    </a>
+  </div>
+</header>
+
+<section id="page-hero" class="page-hero">
+  <div class="section-header">
+    <div class="section-tag">Property Category</div>
+    <h2>Property Laws</h2>
+    <p>Tenant rights, inheritance, disputes, and registration law cards.</p>
+  </div>
+</section>
+
+<section id="laws">
+  <div class="laws-header">
+    <button class="btn-back" onclick="window.location.href='../'">&larr; Back to Law Categories</button>
+    <div id="laws-title" class="laws-section-title">Property Laws</div>
+  </div>
+  <div id="search-bar-wrap">
+    <input type="text" id="searchInput" placeholder="&#128269; Search property laws..." oninput="filterLaws()" />
+  </div>
+  <div id="laws-grid"></div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span>&#9878;&#65039; LegalSetu</span>
+      <p>&#2344;&#2381;&#2351;&#2366;&#2351; &#2325;&#2368; &#2323;&#2352; &#2360;&#2375;&#2340;&#2369; &mdash; Bridge to Justice</p>
+    </div>
+    <div class="footer-links">
+      <strong>Quick Links</strong>
+      <a href="../../index.html">Home</a>
+      <a href="../">All Laws</a>
+      <a href="../../numbers/">Numbers</a>
+    </div>
+    <div class="footer-note">
+      <strong>Disclaimer</strong>
+      <p>This platform is for legal awareness and guided learning. Consult a qualified lawyer for case-specific advice.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 LegalSetu &mdash; Legal awareness and guidance platform</span>
+    <span>Created by Dnyaneshwari Awale, Uday Pawar, and Suyash Deshpande</span>
+  </div>
+</footer>
+
+<script>
+let allLaws = [];
+const currentCategory = 'property';
+
+async function loadCategoryLaws() {
+  document.getElementById('laws-grid').innerHTML = '<div class="loading-spinner">Loading laws...</div>';
+
+  try {
+    const res = await fetch('../../data/property.json');
+    const laws = await res.json();
+    allLaws = laws;
+    renderLaws(laws);
+  } catch (e) {
+    document.getElementById('laws-grid').innerHTML = '<p class="err">&#9888;&#65039; Could not load law data.</p>';
+  }
+}
+
+function renderLaws(laws) {
+  const grid = document.getElementById('laws-grid');
+  if (!laws.length) {
+    grid.innerHTML = '<p class="no-results">No laws found for that search.</p>';
+    return;
+  }
+
+  grid.innerHTML = laws.map((law, i) => `
+    <div class="law-card" style="animation-delay:${i * 0.07}s" onclick="openLaw('${law.id}')">
+      <div class="law-card-top">
+        <div class="law-section-badge">${law.section}</div>
+      </div>
+      <h3 class="law-title">${law.title}</h3>
+      <p class="law-preview">${law.english}</p>
+      <div class="law-meta-row">
+        <span class="law-status-badge ${(law.officialLink || law.referenceLink) ? 'linked' : 'pending'}">${(law.officialLink || law.referenceLink) ? 'Document Linked' : 'Document Pending'}</span>
+      </div>
+      <div class="law-footer">
+        <span class="law-read-more">Read More &rarr;</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterLaws() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const filtered = allLaws.filter(l =>
+    l.title.toLowerCase().includes(q) ||
+    l.english.toLowerCase().includes(q) ||
+    (l.tags && l.tags.toLowerCase().includes(q))
+  );
+  renderLaws(filtered);
+}
+
+function openLaw(id) {
+  window.location.href = `../../law.html?id=${id}&cat=${currentCategory}`;
+}
+
+function toggleNav(forceClose = false) {
+  const nav = document.getElementById('site-nav');
+  const button = document.querySelector('.nav-toggle');
+  const shouldOpen = forceClose ? false : !nav.classList.contains('active');
+  nav.classList.toggle('active', shouldOpen);
+  button.classList.toggle('active', shouldOpen);
+  button.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+}
+
+document.querySelectorAll('#site-nav a').forEach(link => {
+  link.addEventListener('click', () => toggleNav(true));
+});
+
+loadCategoryLaws();
+</script>
+</body>
+</html>

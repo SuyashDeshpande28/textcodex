@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LegalSetu | Numbers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="logo" onclick="window.location.href='../index.html'" style="cursor:pointer;">
+    <div class="logo-icon">&#9878;&#65039;</div>
+    <div class="logo-text">
+      <span class="logo-main">Legal<span class="accent">Setu</span></span>
+      <span class="logo-sub">&#2344;&#2381;&#2351;&#2366;&#2351; &#2325;&#2368; &#2323;&#2352; &#2360;&#2375;&#2340;&#2369;</span>
+    </div>
+  </div>
+  <button class="nav-toggle" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav id="site-nav">
+    <a href="../index.html">Home</a>
+    <a href="../laws/">Laws</a>
+    <a href="./">Numbers</a>
+    <a href="../index.html#lawyers">Find Lawyer</a>
+    <a href="javascript:void(0)" onclick="openDepartmentContacts()">Official Help Desk</a>
+  </nav>
+  <div class="header-right">
+    <a href="tel:+911800-11-9090" class="emergency-call">
+      <span class="pulse-dot"></span>
+      &#128222; Emergency Legal Help
+    </a>
+  </div>
+</header>
+
+<section id="page-hero" class="page-hero">
+  <div class="section-header">
+    <div class="section-tag">Quick Access</div>
+    <h2>Service Numbers</h2>
+    <p>Important numbers, all in one place.</p>
+  </div>
+</section>
+
+<section id="service-directory">
+  <div class="section-header">
+    <div class="section-tag">Find The Right Number</div>
+    <h2>Service Directory</h2>
+    <p>Emergency, support, and complaint helplines.</p>
+  </div>
+  <div class="service-grid">
+    <div class="service-card emergency-service-card">
+      <div class="service-top">
+        <div class="service-icon">&#128660;</div>
+        <div class="service-badge">Emergency</div>
+      </div>
+      <h3>Police Control Room</h3>
+      <div class="service-number">100</div>
+      <p>For immediate police help, threats, crime reporting, and emergency response.</p>
+      <a href="tel:100" class="service-link">Call Now</a>
+    </div>
+    <div class="service-card emergency-service-card">
+      <div class="service-top">
+        <div class="service-icon">&#128105;</div>
+        <div class="service-badge">Women Safety</div>
+      </div>
+      <h3>Women Helpline</h3>
+      <div class="service-number">1091</div>
+      <p>For harassment, domestic violence, unsafe situations, or urgent support for women.</p>
+      <a href="tel:1091" class="service-link">Call Now</a>
+    </div>
+    <div class="service-card emergency-service-card">
+      <div class="service-top">
+        <div class="service-icon">&#128187;</div>
+        <div class="service-badge">Cyber</div>
+      </div>
+      <h3>Cyber Crime Helpline</h3>
+      <div class="service-number">1930</div>
+      <p>For online fraud, scam calls, UPI theft, hacked accounts, and digital complaints.</p>
+      <a href="tel:1930" class="service-link">Call Now</a>
+    </div>
+    <div class="service-card emergency-service-card">
+      <div class="service-top">
+        <div class="service-icon">&#9878;&#65039;</div>
+        <div class="service-badge">Legal Support</div>
+      </div>
+      <h3>NALSA Legal Aid</h3>
+      <div class="service-number">15100</div>
+      <p>For free legal aid, legal awareness, and guidance for eligible citizens.</p>
+      <a href="tel:15100" class="service-link">Call Now</a>
+    </div>
+    <div class="service-card">
+      <div class="service-top">
+        <div class="service-icon">&#128227;</div>
+        <div class="service-badge">Consumer</div>
+      </div>
+      <h3>Consumer Helpline</h3>
+      <div class="service-number">1800-11-9090</div>
+      <p>For product complaints, service issues, refund disputes, and consumer rights support.</p>
+      <a href="tel:1800119090" class="service-link">Call Now</a>
+    </div>
+    <div class="service-card">
+      <div class="service-top">
+        <div class="service-icon">&#128657;</div>
+        <div class="service-badge">Medical</div>
+      </div>
+      <h3>Ambulance</h3>
+      <div class="service-number">108</div>
+      <p>For urgent medical emergencies, accident response, and ambulance assistance.</p>
+      <a href="tel:108" class="service-link">Call Now</a>
+    </div>
+    <div class="service-card">
+      <div class="service-top">
+        <div class="service-icon">&#129490;</div>
+        <div class="service-badge">Child Help</div>
+      </div>
+      <h3>Childline</h3>
+      <div class="service-number">1098</div>
+      <p>For child abuse, neglect, trafficking concerns, or children in distress.</p>
+      <a href="tel:1098" class="service-link">Call Now</a>
+    </div>
+    <div class="service-card">
+      <div class="service-top">
+        <div class="service-icon">&#128658;</div>
+        <div class="service-badge">Fire</div>
+      </div>
+      <h3>Fire Service</h3>
+      <div class="service-number">101</div>
+      <p>For fire emergencies, rescue support, and immediate firefighting response.</p>
+      <a href="tel:101" class="service-link">Call Now</a>
+    </div>
+  </div>
+</section>
+
+<div id="department-overlay" onclick="closeDepartmentContacts()"></div>
+<div id="department-modal" aria-hidden="true">
+  <div class="department-modal-header">
+    <div>
+      <span class="department-modal-tag">Legislative Department</span>
+      <h3>Official Help Desk</h3>
+      <p>Useful public-facing contacts and official pages in one place.</p>
+    </div>
+    <button class="department-close-btn" onclick="closeDepartmentContacts()" aria-label="Close official contacts">X</button>
+  </div>
+
+  <div class="department-contact-list">
+    <div class="department-contact-card">
+      <div class="department-contact-role">Official Website Contact</div>
+      <h4>Legislative Department Contact Page</h4>
+      <p>Best starting point for official phone numbers, updated public contacts, and departmental links.</p>
+      <div class="department-contact-actions">
+        <a href="https://legislative.gov.in/contact-us/" target="_blank" rel="noopener noreferrer">Open Contact Page</a>
+      </div>
+    </div>
+
+    <div class="department-contact-card">
+      <div class="department-contact-role">Web Information Manager</div>
+      <h4>Shri Rakesh Kumar Upadhyay</h4>
+      <p>Deputy Legislative Counsel</p>
+      <div class="department-contact-actions">
+        <a href="tel:23386923">Call 23386923</a>
+        <a href="mailto:rakey.kr@nic.in">Email</a>
+      </div>
+    </div>
+
+    <div class="department-contact-card">
+      <div class="department-contact-role">CPIO</div>
+      <h4>Shri Prakash Chand Meena</h4>
+      <p>Director and Central Public Information Officer</p>
+      <div class="department-contact-actions">
+        <a href="tel:23388007">Call 23388007</a>
+        <a href="mailto:prakash.meena@nic.in">Email</a>
+      </div>
+    </div>
+
+    <div class="department-contact-card">
+      <div class="department-contact-role">First Appeal / RTI</div>
+      <h4>Dr. N. R. Battu</h4>
+      <p>Additional Secretary, Appellate Authority</p>
+      <div class="department-contact-actions">
+        <a href="tel:23384404">Call 23384404</a>
+        <a href="mailto:nr.battu@nic.in">Email</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span>&#9878;&#65039; LegalSetu</span>
+      <p>&#2344;&#2381;&#2351;&#2366;&#2351; &#2325;&#2368; &#2323;&#2352; &#2360;&#2375;&#2340;&#2369; &mdash; Bridge to Justice</p>
+    </div>
+    <div class="footer-links">
+      <strong>Quick Links</strong>
+      <a href="../index.html">Home</a>
+      <a href="../laws/">Laws</a>
+      <a href="javascript:void(0)" onclick="openDepartmentContacts()">Official Help Desk</a>
+    </div>
+    <div class="footer-note">
+      <strong>Disclaimer</strong>
+      <p>This platform is for legal awareness and guided learning. Consult a qualified lawyer for case-specific advice.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 LegalSetu &mdash; Legal awareness and guidance platform</span>
+    <span>Created by Dnyaneshwari Awale, Uday Pawar, and Suyash Deshpande</span>
+  </div>
+</footer>
+
+<script>
+function openDepartmentContacts() {
+  document.getElementById('department-modal').classList.add('active');
+  document.getElementById('department-overlay').classList.add('active');
+  document.body.classList.add('modal-open');
+}
+
+function closeDepartmentContacts() {
+  document.getElementById('department-modal').classList.remove('active');
+  document.getElementById('department-overlay').classList.remove('active');
+  document.body.classList.remove('modal-open');
+}
+
+function toggleNav(forceClose = false) {
+  const nav = document.getElementById('site-nav');
+  const button = document.querySelector('.nav-toggle');
+  const shouldOpen = forceClose ? false : !nav.classList.contains('active');
+  nav.classList.toggle('active', shouldOpen);
+  button.classList.toggle('active', shouldOpen);
+  button.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+}
+
+document.querySelectorAll('#site-nav a').forEach(link => {
+  link.addEventListener('click', () => toggleNav(true));
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeDepartmentContacts();
+  }
+});
+</script>
+</body>
+</html>

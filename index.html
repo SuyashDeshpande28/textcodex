@@ -1,0 +1,702 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LegalSetu | India's Legal Awareness Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">&#9878;&#65039;</div>
+    <div class="logo-text">
+      <span class="logo-main">Legal<span class="accent">Setu</span></span>
+      <span class="logo-sub">&#2344;&#2381;&#2351;&#2366;&#2351; &#2325;&#2368; &#2323;&#2352; &#2360;&#2375;&#2340;&#2369;</span>
+    </div>
+  </div>
+  <button class="nav-toggle" onclick="toggleNav()" aria-label="Open navigation menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav id="site-nav">
+    <a href="index.html">Home</a>
+    <a href="laws/">Laws</a>
+    <a href="numbers/">Numbers</a>
+    <a href="#lawyers">Find Lawyer</a>
+    <a href="#community-stories">Real Stories</a>
+    <a href="#about">About</a>
+  </nav>
+  <div class="header-right">
+    <a href="tel:+911800-11-9090" class="emergency-call" onclick="handleEmergencyClick(event)">
+      <span class="pulse-dot"></span>
+      &#128222; Emergency Legal Help
+    </a>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="floating-icons">
+    <span style="top:15%;left:8%">&#9878;&#65039;</span>
+    <span style="bottom:25%;right:8%">&#127963;&#65039;</span>
+    <span style="top:60%;left:5%">&#128220;</span>
+    <span style="top:20%;right:12%">&#127470;&#127475;</span>
+    <span style="bottom:15%;left:20%">&#128273;</span>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">Trusted legal awareness for everyday citizens</div>
+    <h1>Know Your Rights.<br><span class="hero-accent">Act With Confidence.</span></h1>
+    <p class="hero-sub">India's AI-powered legal awareness platform. Understand Indian laws in plain language &mdash; in English &amp; Hindi. Your rights, explained clearly.</p>
+    <div class="hero-cta">
+      <button onclick="window.location.href='laws/'" class="btn-primary">Explore Laws &rarr;</button>
+      <button onclick="window.location.href='numbers/'" class="btn-secondary">Service Numbers</button>
+      <button onclick="openChat()" class="btn-secondary">&#129302; Ask AI Legal Assistant</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Law Categories</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">80+</span><span class="stat-label">Laws Covered</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">EN+HI</span><span class="stat-label">Bilingual Support</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ALERT NOTES BANNER ========== -->
+<section id="alert-notes">
+  <div class="notes-container">
+    <div class="note-card note-warning">
+      <div class="note-icon">&#9888;&#65039;</div>
+      <div class="note-content">
+        <strong>Don't wait &mdash; Act immediately!</strong>
+        <p>Many legal issues become easier to handle when you document events early and understand the correct next step without delay.</p>
+      </div>
+    </div>
+    <div class="note-card note-info">
+      <div class="note-icon">&#128203;</div>
+      <div class="note-content">
+        <strong>Document Everything</strong>
+        <p>Take photos, save messages, collect receipts, and write down dates and witnesses. Evidence is your strongest legal tool.</p>
+      </div>
+    </div>
+    <div class="note-card note-success">
+      <div class="note-icon">&#127344;</div>
+      <div class="note-content">
+        <strong>Free Legal Aid is Your Right</strong>
+        <p>Under Article 39A, every citizen is entitled to free legal aid. Contact NALSA at 15100 &mdash; available 24/7 across India.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CATEGORIES ========== -->
+<section id="content-hub">
+  <div class="section-header">
+    <div class="section-tag">Explore Faster</div>
+    <h2>Choose What You Need</h2>
+    <p>Laws or numbers, without the clutter.</p>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card" onclick="window.location.href='laws/'">
+      <div class="cat-icon-wrap cat-traffic">&#128220;</div>
+      <h3>Explore Laws</h3>
+      <p>Browse the 4 legal categories, Constitution cards, and searchable law explanations.</p>
+      <span class="cat-arrow">Open Laws &rarr;</span>
+    </div>
+    <div class="cat-card" onclick="window.location.href='numbers/'">
+      <div class="cat-icon-wrap cat-cyber">&#128222;</div>
+      <h3>Service Numbers</h3>
+      <p>Open the helpline directory for police, women safety, cyber crime, legal aid, and more.</p>
+      <span class="cat-arrow">Open Numbers &rarr;</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== COMMUNITY STORIES ========== -->
+<section id="community-stories">
+  <div class="section-header">
+    <div class="section-tag">Real Legal Experiences</div>
+    <h2>Stories From People Who Took Action</h2>
+    <p>People can share what problem they faced, what they did, and what helped. Only reviewed stories appear publicly.</p>
+  </div>
+  <div class="stories-layout">
+    <div class="story-form-shell">
+      <div class="story-form-head">
+        <h3>Submit Your Story</h3>
+        <p>Share your experience so others can learn from a real situation. Personal details stay minimal and every story is reviewed before publishing.</p>
+      </div>
+      <form id="storyForm" class="story-form" onsubmit="submitStory(event)">
+        <div class="story-form-row">
+          <label>
+            Name or nickname
+            <input type="text" id="storyName" maxlength="80" placeholder="Anonymous Citizen" />
+          </label>
+          <label>
+            City or state
+            <input type="text" id="storyCity" maxlength="80" placeholder="Pune, Maharashtra" />
+          </label>
+        </div>
+        <div class="story-form-row">
+          <label>
+            Category
+            <select id="storyCategory" required>
+              <option value="">Select a category</option>
+              <option value="Traffic">Traffic</option>
+              <option value="Women&#39;s Rights">Women&#39;s Rights</option>
+              <option value="Cyber Laws">Cyber Laws</option>
+              <option value="Property Laws">Property Laws</option>
+              <option value="General Legal Help">General Legal Help</option>
+            </select>
+          </label>
+          <label>
+            Outcome status
+            <input type="text" id="storyOutcomeStatus" maxlength="60" placeholder="Resolved / In progress / Guidance received" />
+          </label>
+        </div>
+        <label>
+          What problem did you face?
+          <textarea id="storyProblem" rows="4" maxlength="800" required placeholder="Briefly describe the issue you faced."></textarea>
+        </label>
+        <label>
+          What action did you take?
+          <textarea id="storyAction" rows="4" maxlength="1000" required placeholder="Mention what steps you took, such as calling a helpline, filing a complaint, visiting an office, or consulting a lawyer."></textarea>
+        </label>
+        <label>
+          What was the result?
+          <textarea id="storyOutcome" rows="3" maxlength="700" required placeholder="Explain what happened after you took action."></textarea>
+        </label>
+        <label>
+          What should others learn from your experience?
+          <textarea id="storyLesson" rows="3" maxlength="500" placeholder="Optional lesson or advice for others."></textarea>
+        </label>
+        <label class="story-consent">
+          <input type="checkbox" id="storyConsent" required />
+          <span>I agree that this story can be reviewed and published on LegalSetu after approval.</span>
+        </label>
+        <div class="story-form-actions">
+          <button type="submit" class="btn-primary">Submit For Review</button>
+          <div id="storyFormStatus" class="story-form-status"></div>
+        </div>
+      </form>
+    </div>
+
+    <div class="stories-feed-shell">
+      <div class="story-form-head">
+        <h3>Approved Community Stories</h3>
+        <p>These stories are shown only after review so the section stays useful and respectful.</p>
+      </div>
+      <div id="storiesList" class="stories-list">
+        <div class="story-loading">Loading approved stories...</div>
+      </div>
+      <div class="story-admin-note">
+        Admin moderation page: <a href="admin-stories.html" target="_blank" rel="noopener noreferrer">Open story review panel</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ========== LAWYER CONTACT ========== -->
+<section id="lawyers">
+  <div class="section-header">
+    <div class="section-tag">Get Professional Help</div>
+    <h2>Connect With a Lawyer</h2>
+    <p>Speak to qualified legal professionals &mdash; confidential, reliable guidance</p>
+  </div>
+  <div class="lawyers-grid">
+    <div class="lawyer-card">
+      <div class="lawyer-avatar">&#128104;&zwj;&#9878;&#65039;</div>
+      <div class="lawyer-info">
+        <h3>Adv. Suyash Deshpande</h3>
+        <div class="lawyer-specialty">&#128678; Traffic & Motor Vehicle Laws</div>
+        <div class="lawyer-specialty">&#127968; Property Disputes</div>
+        <div class="lawyer-location">&#128205; Pune, Maharashtra</div>
+        <div class="lawyer-exp">&#11088; 12 Years Experience</div>
+      </div>
+      <div class="lawyer-contact">
+        <a href="tel:+919876543210" class="btn-call">&#128222; +91 98765 43210</a>
+        <a href="https://wa.me/919876543210" class="btn-whatsapp" target="_blank">&#128172; WhatsApp</a>
+      </div>
+    </div>
+    <div class="lawyer-card">
+      <div class="lawyer-avatar">&#128105;&zwj;&#9878;&#65039;</div>
+      <div class="lawyer-info">
+        <h3>Adv. Uday Pawar</h3>
+        <div class="lawyer-specialty">&#128105; Women's Rights & POSH</div>
+        <div class="lawyer-specialty">&#9878;&#65039; Family & Domestic Cases</div>
+        <div class="lawyer-location">&#128205; Pune, Maharashtra</div>
+        <div class="lawyer-exp">&#11088; 8 Years Experience</div>
+      </div>
+      <div class="lawyer-contact">
+        <a href="tel:+919812345678" class="btn-call">&#128222; +91 98123 45678</a>
+        <a href="https://wa.me/919812345678" class="btn-whatsapp" target="_blank">&#128172; WhatsApp</a>
+      </div>
+    </div>
+    <div class="lawyer-card">
+      <div class="lawyer-avatar">&#128104;&zwj;&#128187;</div>
+      <div class="lawyer-info">
+        <h3>Adv. Dnyaneshwari Awale</h3>
+        <div class="lawyer-specialty">&#128187; Cyber Crime & IT Act</div>
+        <div class="lawyer-specialty">&#128241; Digital Fraud & Privacy</div>
+        <div class="lawyer-location">&#128205; Pune, Maharashtra</div>
+        <div class="lawyer-exp">&#11088; 6 Years Experience</div>
+      </div>
+      <div class="lawyer-contact">
+        <a href="tel:+919998887770" class="btn-call">&#128222; +91 99988 87770</a>
+        <a href="https://wa.me/919998887770" class="btn-whatsapp" target="_blank">&#128172; WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="nalsa-banner">
+    <div class="nalsa-left">
+      <div class="nalsa-title">&#127344; Need Free Legal Aid?</div>
+      <div class="nalsa-sub">NALSA &mdash; National Legal Services Authority provides FREE legal help to every citizen.</div>
+    </div>
+    <a href="tel:15100" class="nalsa-btn">Call 15100 &mdash; Free 24/7</a>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-tag">About LegalSetu</div>
+      <h2>Built for India's Citizens</h2>
+      <p>LegalSetu explains Indian laws, rights, and practical next steps in simple English and Hindi so people can act with more confidence.</p>
+      <p>It is designed for legal awareness, guided learning, and quick support discovery. For case-specific decisions, users should still consult a qualified lawyer.</p>
+      <div class="tech-tags">
+        <span>HTML/CSS/JS</span>
+        <span>AI Chat Support</span>
+        <span>Node.js</span>
+        <span>JSON Data</span>
+        <span>Bilingual</span>
+      </div>
+    </div>
+    <div class="about-quote">
+      <blockquote>
+        "The law is reason free from passion."
+        <cite>&mdash; Aristotle</cite>
+      </blockquote>
+      <blockquote>
+        "Justice delayed is justice denied."
+        <cite>&mdash; William Gladstone</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span>&#9878;&#65039; LegalSetu</span>
+      <p>&#2344;&#2381;&#2351;&#2366;&#2351; &#2325;&#2368; &#2323;&#2352; &#2360;&#2375;&#2340;&#2369; &mdash; Bridge to Justice</p>
+    </div>
+    <div class="footer-links">
+      <strong>Quick Help</strong>
+      <a href="tel:100">Police &mdash; 100</a>
+      <a href="tel:1091">Women &mdash; 1091</a>
+      <a href="tel:1930">Cyber &mdash; 1930</a>
+      <a href="tel:15100">Legal Aid &mdash; 15100</a>
+    </div>
+    <div class="footer-note">
+      <strong>Disclaimer</strong>
+      <p>This platform is for legal awareness and guided learning. Official linked sources should be checked wherever available, and a qualified lawyer should be consulted for specific legal matters.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 LegalSetu &mdash; Legal awareness and guidance platform</span>
+    <span>Created by Dnyaneshwari Awale, Uday Pawar, and Suyash Deshpande</span>
+  </div>
+</footer>
+
+
+<!-- ========== OFFICIAL CONTACTS MODAL ========== -->
+<div id="department-overlay" onclick="closeDepartmentContacts()"></div>
+<div id="department-modal" aria-hidden="true">
+  <div class="department-modal-header">
+    <div>
+      <span class="department-modal-tag">Legislative Department</span>
+      <h3>Official Help Desk</h3>
+      <p>Useful public-facing contacts and official pages, kept inside a popup so the homepage stays clean.</p>
+    </div>
+    <button class="department-close-btn" onclick="closeDepartmentContacts()" aria-label="Close official contacts">X</button>
+  </div>
+
+  <div class="department-contact-list">
+    <div class="department-contact-card">
+      <div class="department-contact-role">Official Website Contact</div>
+      <h4>Legislative Department Contact Page</h4>
+      <p>Best starting point for official phone numbers, updated public contacts, and departmental links.</p>
+      <div class="department-contact-meta">Use this when you want the latest official contact details directly from the department website.</div>
+      <div class="department-contact-actions">
+        <a href="https://legislative.gov.in/contact-us/" target="_blank" rel="noopener noreferrer">Open Contact Page</a>
+      </div>
+    </div>
+
+    <div class="department-contact-card">
+      <div class="department-contact-role">Web Information Manager</div>
+      <h4>Shri Rakesh Kumar Upadhyay</h4>
+      <p>Deputy Legislative Counsel</p>
+      <div class="department-contact-meta">Room No. 727, A Wing, 7th Floor, Shastri Bhawan, New Delhi</div>
+      <div class="department-contact-actions">
+        <a href="tel:23386923">Call 23386923</a>
+        <a href="mailto:rakey.kr@nic.in">Email</a>
+      </div>
+    </div>
+
+    <div class="department-contact-card">
+      <div class="department-contact-role">CPIO</div>
+      <h4>Shri Prakash Chand Meena</h4>
+      <p>Director and Central Public Information Officer</p>
+      <div class="department-contact-meta">Room No. 728, A Wing, 7th Floor, Shastri Bhawan, New Delhi</div>
+      <div class="department-contact-actions">
+        <a href="tel:23388007">Call 23388007</a>
+        <a href="mailto:prakash.meena@nic.in">Email</a>
+      </div>
+    </div>
+
+    <div class="department-contact-card">
+      <div class="department-contact-role">First Appeal / RTI</div>
+      <h4>Dr. N. R. Battu</h4>
+      <p>Additional Secretary, Appellate Authority</p>
+      <div class="department-contact-meta">Room No. 421, A Wing, 4th Floor, Shastri Bhawan, New Delhi</div>
+      <div class="department-contact-actions">
+        <a href="tel:23384404">Call 23384404</a>
+        <a href="mailto:nr.battu@nic.in">Email</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="department-modal-footer">
+    <a href="https://legislative.gov.in/contact-us/" target="_blank" rel="noopener noreferrer">Contact Page</a>
+    <a href="https://lddashboard.legislative.gov.in/contactus" target="_blank" rel="noopener noreferrer">LD Dashboard Contact</a>
+    <a href="https://legislative.gov.in/web-information-manager/" target="_blank" rel="noopener noreferrer">Web Information Manager</a>
+  </div>
+</div>
+
+<!-- ========== CHAT ICON ========== -->
+<div id="chat-icon" onclick="openChat()" title="Ask AI Legal Assistant">
+  <span>&#129302;</span>
+  <div class="chat-badge">AI</div>
+</div>
+
+<!-- ========== CHAT PANEL ========== -->
+<div id="chat-overlay" onclick="closeChat()"></div>
+<div id="chat-container">
+  <div class="chat-header">
+    <div class="chat-title">
+      <div class="chat-avatar">&#9878;&#65039;</div>
+      <div>
+        <h3>LegalSetu AI</h3>
+        <span class="online-dot">&#9679; Online</span>
+      </div>
+    </div>
+    <button class="close-btn" onclick="closeChat()">&#10005;</button>
+  </div>
+  <div id="chat-box">
+    <div class="bot-message">
+      Namaste! &#128591; I'm your AI Legal Assistant. Ask me anything about Indian laws &mdash; traffic rules, women's rights, cyber laws, property disputes, or general legal questions. I'll answer in simple language!
+    </div>
+  </div>
+  <div class="chat-quick-btns">
+    <button onclick="quickAsk('What are my rights if I get a traffic challan?')">Traffic Fine?</button>
+    <button onclick="quickAsk('How do I file a cyber crime complaint?')">Cyber Crime?</button>
+    <button onclick="quickAsk('What should I do in a domestic violence situation?')">Domestic Violence?</button>
+    <button onclick="quickAsk('How do I get free legal aid in India?')">Free Legal Aid?</button>
+  </div>
+  <div class="chat-input-area">
+    <input type="text" id="userInput" placeholder="Ask your legal question..." onkeydown="if(event.key==='Enter') sendMessage()" />
+    <button onclick="sendMessage()">Send &rarr;</button>
+  </div>
+</div>
+
+<script>
+// ===== DATA & STATE =====
+let allLaws = [];
+let currentCategory = '';
+const categoryLabels = {
+  traffic: 'Traffic Laws',
+  women: 'Women\'s Rights',
+  cyber: 'Cyber Laws',
+  property: 'Property Laws'
+};
+
+// ===== LOAD LAWS =====
+async function loadLaws(cat) {
+  currentCategory = cat;
+  document.getElementById('laws').style.display = 'block';
+  document.getElementById('categories').style.display = 'none';
+  document.getElementById('laws-title').textContent = categoryLabels[cat];
+  document.getElementById('laws-grid').innerHTML = '<div class="loading-spinner">Loading laws...</div>';
+  document.getElementById('laws').scrollIntoView({ behavior: 'smooth' });
+
+  try {
+    const res = await fetch(`data/${cat}.json`);
+    const laws = await res.json();
+    allLaws = laws;
+    renderLaws(laws);
+  } catch (e) {
+    document.getElementById('laws-grid').innerHTML = '<p class="err">&#9888;&#65039; Could not load law data.</p>';
+  }
+}
+
+function renderLaws(laws) {
+  const grid = document.getElementById('laws-grid');
+  if (!laws.length) {
+    grid.innerHTML = '<p class="no-results">No laws found for that search.</p>';
+    return;
+  }
+  grid.innerHTML = laws.map((law, i) => `
+    <div class="law-card" style="animation-delay:${i * 0.07}s" onclick="openLaw('${law.id}')">
+      <div class="law-card-top">
+        <div class="law-section-badge">${law.section}</div>
+      </div>
+      <h3 class="law-title">${law.title}</h3>
+      <p class="law-preview">${law.english}</p>
+      <div class="law-footer">
+        <span class="law-read-more">Read More &rarr;</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterLaws() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const filtered = allLaws.filter(l =>
+    l.title.toLowerCase().includes(q) ||
+    l.english.toLowerCase().includes(q) ||
+    (l.tags && l.tags.toLowerCase().includes(q))
+  );
+  renderLaws(filtered);
+}
+
+function hideLaws() {
+  document.getElementById('laws').style.display = 'none';
+  document.getElementById('categories').style.display = 'block';
+  document.getElementById('searchInput').value = '';
+  document.getElementById('categories').scrollIntoView({ behavior: 'smooth' });
+}
+
+function openLaw(id) {
+  window.location.href = `law.html?id=${id}&cat=${currentCategory}`;
+}
+
+
+
+
+async function loadStories() {
+  const list = document.getElementById('storiesList');
+  if (!list) return;
+
+  list.innerHTML = '<div class="story-loading">Loading approved stories...</div>';
+
+  try {
+    const res = await fetch('http://localhost:5000/api/stories');
+    const data = await res.json();
+    const stories = Array.isArray(data.stories) ? data.stories : [];
+
+    if (!stories.length) {
+      list.innerHTML = '<div class="story-empty">No approved stories yet. Be the first to share a useful experience.</div>';
+      return;
+    }
+
+    list.innerHTML = stories.map(story => `
+      <article class="story-card ${story.featured ? 'story-card-featured' : ''}">
+        <div class="story-top">
+          <span class="story-badge">${story.category}</span>
+          <span class="story-status">${story.featured ? 'Featured' : 'Published'}</span>
+        </div>
+        <div class="story-name-row">
+          <h4>${story.name || 'Anonymous Citizen'}</h4>
+          <span>${story.city || 'India'}</span>
+        </div>
+        ${story.outcomeStatus ? `<div class="story-outcome-status">${story.outcomeStatus}</div>` : ''}
+        <div class="story-block">
+          <strong>Problem</strong>
+          <p>${story.problem}</p>
+        </div>
+        <div class="story-block">
+          <strong>Action Taken</strong>
+          <p>${story.actionTaken}</p>
+        </div>
+        <div class="story-block">
+          <strong>Outcome</strong>
+          <p>${story.outcome}</p>
+        </div>
+        ${story.lesson ? `
+          <div class="story-block story-block-lesson">
+            <strong>Key Lesson</strong>
+            <p>${story.lesson}</p>
+          </div>
+        ` : ''}
+      </article>
+    `).join('');
+  } catch (error) {
+    list.innerHTML = '<div class="story-empty">Stories could not be loaded right now.</div>';
+  }
+}
+
+async function submitStory(event) {
+  event.preventDefault();
+
+  const status = document.getElementById('storyFormStatus');
+  const form = document.getElementById('storyForm');
+  const payload = {
+    name: document.getElementById('storyName').value.trim(),
+    city: document.getElementById('storyCity').value.trim(),
+    category: document.getElementById('storyCategory').value,
+    outcomeStatus: document.getElementById('storyOutcomeStatus').value.trim(),
+    problem: document.getElementById('storyProblem').value.trim(),
+    actionTaken: document.getElementById('storyAction').value.trim(),
+    outcome: document.getElementById('storyOutcome').value.trim(),
+    lesson: document.getElementById('storyLesson').value.trim(),
+    consent: document.getElementById('storyConsent').checked
+  };
+
+  status.textContent = 'Submitting your story...';
+  status.className = 'story-form-status is-loading';
+
+  try {
+    const res = await fetch('http://localhost:5000/api/stories', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || 'Story could not be submitted.');
+    }
+
+    form.reset();
+    status.textContent = 'Your story was sent for review. It will appear after approval.';
+    status.className = 'story-form-status is-success';
+  } catch (error) {
+    status.textContent = error.message || 'Story could not be submitted.';
+    status.className = 'story-form-status is-error';
+  }
+}
+
+function openDepartmentContacts() {
+  document.getElementById('department-modal').classList.add('active');
+  document.getElementById('department-overlay').classList.add('active');
+  document.body.classList.add('modal-open');
+}
+
+function closeDepartmentContacts() {
+  document.getElementById('department-modal').classList.remove('active');
+  document.getElementById('department-overlay').classList.remove('active');
+  document.body.classList.remove('modal-open');
+}
+
+// ===== CHAT =====
+function openChat() {
+  document.getElementById('chat-container').classList.add('active');
+  document.getElementById('chat-overlay').classList.add('active');
+}
+function closeChat() {
+  document.getElementById('chat-container').classList.remove('active');
+  document.getElementById('chat-overlay').classList.remove('active');
+}
+
+function quickAsk(q) {
+  document.getElementById('userInput').value = q;
+  sendMessage();
+}
+
+async function sendMessage() {
+  const input = document.getElementById('userInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  input.value = '';
+
+  const chatBox = document.getElementById('chat-box');
+  chatBox.innerHTML += `<div class="user-message">${msg}</div>`;
+
+  const typing = document.createElement('div');
+  typing.className = 'bot-message typing-indicator';
+  typing.innerHTML = '<span></span><span></span><span></span>';
+  chatBox.appendChild(typing);
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  try {
+    const res = await fetch('http://localhost:5000/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ message: msg })
+    });
+
+    const data = await res.json();
+    typing.remove();
+
+    if (!res.ok) {
+      throw new Error(data.error || `Chat API failed with status ${res.status}`);
+    }
+
+    const reply = data.reply || 'Sorry, I could not get a response. Please try again.';
+    chatBox.innerHTML += `<div class="bot-message">${reply}</div>`;
+  } catch (e) {
+    typing.remove();
+    const errorText = e && e.message ? e.message : 'Unable to connect to AI. Check your connection and try again.';
+    chatBox.innerHTML += `<div class="bot-message">&#9888;&#65039; ${errorText}</div>`;
+  }
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// ===== SCROLL REVEAL =====
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.cat-card, .lawyer-card, .note-card, .qa-card, .about-text, .about-quote, .constitution-card').forEach(el => {
+  observer.observe(el);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeDepartmentContacts();
+  }
+});
+
+function toggleNav(forceClose = false) {
+  const nav = document.getElementById('site-nav');
+  const button = document.querySelector('.nav-toggle');
+  const shouldOpen = forceClose ? false : !nav.classList.contains('active');
+  nav.classList.toggle('active', shouldOpen);
+  button.classList.toggle('active', shouldOpen);
+  button.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+}
+
+document.querySelectorAll('#site-nav a').forEach(link => {
+  link.addEventListener('click', () => toggleNav(true));
+});
+
+loadStories();
+
+function handleEmergencyClick(event) {
+  const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
+
+  if (isSmallScreen) {
+    return;
+  }
+
+  event.preventDefault();
+  window.location.href = 'numbers/';
+}
+</script>
+</body>
+</html>
+
+
+
+

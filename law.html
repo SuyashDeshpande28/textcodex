@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LegalSetu | Law Details</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: var(--off-white);
+      min-height: 100vh;
+    }
+
+    #law-page-body {
+      padding: 50px 5%;
+    }
+
+    .law-detail-header {
+      max-width: 860px;
+      margin: 0 auto 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .law-detail-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .law-detail-card .law-section-label {
+      display: inline-block;
+      background: rgba(249,115,22,0.1);
+      color: var(--saffron);
+      border: 1px solid rgba(249,115,22,0.25);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+    }
+
+    .law-detail-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-top: 28px;
+      margin-bottom: 10px;
+      padding-left: 14px;
+      border-left: 3px solid var(--saffron);
+    }
+
+    .law-detail-card p {
+      color: var(--text-mid);
+      font-size: 0.97rem;
+      line-height: 1.75;
+    }
+
+    /* Quick action panel on law page */
+    .law-action-panel {
+      max-width: 860px;
+      margin: 28px auto 0;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      border-radius: 18px;
+      padding: 28px 32px;
+      color: white;
+    }
+
+    .lap-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .lap-sub {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 20px;
+    }
+
+    .lap-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .lap-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .lap-btn:hover { transform: translateY(-2px); }
+    .lap-police { background: rgba(239,68,68,0.2); color: #fca5a5; }
+    .lap-women { background: rgba(236,72,153,0.2); color: #f9a8d4; }
+    .lap-cyber { background: rgba(59,130,246,0.2); color: #93c5fd; }
+    .lap-nalsa { background: rgba(249,115,22,0.25); color: var(--saffron-light); }
+
+    .note-strip {
+      max-width: 860px;
+      margin: 20px auto 0;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .note-strip strong { font-size: 0.88rem; color: #92400e; }
+    .note-strip p { font-size: 0.82rem; color: #a16207; margin-top: 3px; }
+
+    .btn-back-detail {
+      background: white;
+      border: 1px solid var(--light-gray);
+      color: var(--navy);
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'DM Sans', sans-serif;
+      text-decoration: none;
+    }
+
+    .btn-back-detail:hover { background: var(--navy); color: white; }
+
+    .share-btn {
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: transform 0.2s;
+    }
+
+    .share-btn:hover { transform: translateY(-2px); }
+
+    footer {
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer;">
+    <div class="logo-icon">&#9878;&#65039;</div>
+    <div class="logo-text">
+      <span class="logo-main">Legal<span class="accent">Setu</span></span>
+      <span class="logo-sub">&#2344;&#2381;&#2351;&#2366;&#2351; &#2325;&#2368; &#2323;&#2352; &#2360;&#2375;&#2340;&#2369;</span>
+    </div>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="laws/">Laws</a>
+    <a href="numbers/">Numbers</a>
+    <a href="index.html#lawyers">Find Lawyer</a>
+  </nav>
+  <div class="header-right">
+    <a href="tel:+911800-11-9090" class="emergency-call">
+      <span class="pulse-dot"></span>
+      &#128222; Emergency Legal Help
+    </a>
+  </div>
+</header>
+
+<main id="law-page-body">
+  <div class="law-detail-header">
+    <button class="btn-back-detail" onclick="window.history.back()">&larr; Back to Laws</button>
+    <button class="share-btn" onclick="navigator.share ? navigator.share({title: document.title, url: window.location.href}) : alert('Copy this URL: ' + window.location.href)">&#128228; Share This Law</button>
+  </div>
+
+  <!-- Law Card -->
+  <div class="law-detail-card" id="law-detail-card">
+    <p style="color:var(--text-soft); text-align:center; padding:40px;">Loading law details...</p>
+  </div>
+
+  <!-- Immediate Action Panel -->
+  <div class="law-action-panel">
+    <div class="lap-title">&#9889; Need Immediate Help?</div>
+    <div class="lap-sub">If you're facing a legal situation right now &mdash; don't wait. Take action immediately.</div>
+    <div class="lap-actions">
+      <a href="tel:100" class="lap-btn lap-police">&#128660; Call Police &mdash; 100</a>
+      <a href="tel:1091" class="lap-btn lap-women">&#128105; Women Helpline &mdash; 1091</a>
+      <a href="tel:1930" class="lap-btn lap-cyber">&#128187; Cyber Crime &mdash; 1930</a>
+      <a href="tel:15100" class="lap-btn lap-nalsa">&#9878;&#65039; Free Legal Aid &mdash; 15100</a>
+    </div>
+  </div>
+
+  <!-- Note Strip -->
+  <div class="note-strip">
+    <span style="font-size:22px; flex-shrink:0;">&#128203;</span>
+    <div>
+      <strong>Important: Document everything before taking action.</strong>
+      <p>Collect photos, screenshots, messages, and write down dates, times, and witness names. Strong evidence significantly improves your legal case.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span>&#9878;&#65039; LegalSetu</span>
+      <p>&#2344;&#2381;&#2351;&#2366;&#2351; &#2325;&#2368; &#2323;&#2352; &#2360;&#2375;&#2340;&#2369; &mdash; Bridge to Justice</p>
+    </div>
+    <div class="footer-links">
+      <strong>Quick Help</strong>
+      <a href="tel:100">Police &mdash; 100</a>
+      <a href="tel:1091">Women &mdash; 1091</a>
+      <a href="tel:1930">Cyber &mdash; 1930</a>
+      <a href="tel:15100">Legal Aid &mdash; 15100</a>
+    </div>
+    <div class="footer-note">
+      <strong>Disclaimer</strong>
+      <p>This platform is for legal awareness and guided learning. Official linked sources should be checked wherever available, and a qualified lawyer should be consulted for specific legal matters.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>2025 LegalSetu &mdash; Legal awareness and guidance platform</span>
+    <span>Created by Dnyaneshwari Awale, Uday Pawar, and Suyash Deshpande</span>
+  </div>
+</footer>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const lawId = params.get('id');
+const category = params.get('cat') || 'traffic';
+
+let currentLaw = null;
+let detailLang = "english";
+
+async function loadLaw() {
+  try {
+    const res = await fetch(`data/${category}.json`);
+    const laws = await res.json();
+    const law = laws.find(l => l.id === lawId);
+    const container = document.getElementById('law-detail-card');
+
+    if (!law) {
+      container.innerHTML = "<h2 style='color:var(--navy); font-family: Playfair Display, serif;'>Law not found</h2><p>Please go back and try again.</p>";
+      return;
+    }
+
+    currentLaw = law;
+    document.title = `LegalSetu | ${law.title}`;
+
+    container.innerHTML = `
+      <div class="detail-lang-toggle">
+        <span onclick="switchLang('english')" id="lang-en" class="active-detail-lang">English</span>
+        <span onclick="switchLang('hindi')" id="lang-hi">&#2361;&#2367;&#2306;&#2342;&#2368;</span>
+      </div>
+
+      <div class="law-section-label">${law.section}</div>
+      <h2>${law.title}</h2>
+
+      <p id="law-text">${law.english}</p>
+
+      <h3>Detailed Explanation</h3>
+      <p id="law-explanation">${law.explanationEnglish}</p>
+
+      <div class="verification-status-box ${(law.officialLink || law.referenceLink) ? 'verified' : 'pending'}">
+        <h4>${(law.officialLink || law.referenceLink) ? 'Verification Status: Source Linked' : 'Verification Status: Source To Be Added'}</h4>
+        <p>${(law.officialLink || law.referenceLink) ? 'This law page includes a linked source or legal reference for readers to cross-check.' : 'This law summary is available for awareness, but a source link has not yet been attached on this page.'}</p>
+      </div>
+
+      ${law.officialLink ? `
+        <div class="official-source-box">
+          <h4>&#127963;&#65039; Official Government Source</h4>
+          <p><strong>${law.officialActName || ''}</strong></p>
+          <p style="font-size:0.82rem; color:var(--text-soft); margin-top:4px;">${law.verifiedSource || ''}</p>
+          <a href="${law.officialLink}" target="_blank">&#128216; View Official Document &rarr;</a>
+        </div>
+      ` : ''}
+
+      ${law.referenceLink ? `
+        <div class="official-source-box legal-reference-box">
+          <h4>&#128218; Legal Reference</h4>
+          <p><strong>${law.referenceLabel || 'Section Reference'}</strong></p>
+          <p style="font-size:0.82rem; color:var(--text-soft); margin-top:4px;">${law.referenceSource || ''}</p>
+          <a href="${law.referenceLink}" target="_blank">Open Reference &rarr;</a>
+        </div>
+      ` : ''}
+    `;
+  } catch (err) {
+    document.getElementById('law-detail-card').innerHTML =
+      `<h2 style="color:var(--navy); font-family:Playfair Display,serif;">Error Loading</h2><p>Could not load law data. Please go back and try again.</p>`;
+  }
+}
+
+function switchLang(lang) {
+  detailLang = lang;
+  document.getElementById("lang-en").classList.remove("active-detail-lang");
+  document.getElementById("lang-hi").classList.remove("active-detail-lang");
+  document.getElementById(lang === "english" ? "lang-en" : "lang-hi").classList.add("active-detail-lang");
+  document.getElementById("law-text").innerText = lang === "english" ? currentLaw.english : currentLaw.hindi;
+  document.getElementById("law-explanation").innerText = lang === "english" ? currentLaw.explanationEnglish : currentLaw.explanationHindi;
+}
+
+loadLaw();
+</script>
+</body>
+</html>
