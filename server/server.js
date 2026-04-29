@@ -244,7 +244,6 @@ app.delete("/api/admin/stories/:id", requireAdmin, (req, res) => {
   writeStories(nextStories);
   res.json({ message: "Story removed." });
 });
-
 app.post("/chat", async (req, res) => {
   const message = req.body.message;
 
@@ -265,43 +264,10 @@ app.post("/chat", async (req, res) => {
         },
         body: JSON.stringify({
           model: "llama-3.1-8b-instant",
-          temperature: 0.3,
           messages: [
-            {
-              role: "system",
-              content: `
-You are LegalSetu, a professional Indian legal assistant.
-
-Rules:
-- Prefer short, easy-to-read sections.
-- Use this exact plain-text structure when possible:
-  Key Law:
-  What You Can Do:
-  Source:
-- Start the main explanation directly, without writing the word "Answer".
-- If you mention more than one law, format each as:
-  Local Law 1:
-  Key Law:
-  What You Can Do:
-  Source:
-- Put each label on its own new line.
-- Leave a blank line between the main explanation and each later section.
-- Use short bullets or short paragraphs.
-- Mention relevant Act name and Section number only when reasonably supported.
-- Use the local website law data when it is relevant to the question.
-- Do not invent laws.
-- If state rules vary, clearly mention: "State rules may vary."
-- Do not use markdown symbols like **, ##, or ### in the final answer.
-`
-            },
-            {
-              role: "system",
-              content: `Local website law data:\n${localLawContext}`
-            },
-            {
-              role: "user",
-              content: message
-            }
+            { role: "system", content: "You are LegalSetu assistant." },
+            { role: "system", content: `Local data:\n${localLawContext}` },
+            { role: "user", content: message }
           ]
         })
       }
@@ -309,21 +275,18 @@ Rules:
 
     const data = await response.json();
 
-    if (!data.choices || !data.choices[0]) {
-      console.log("API ERROR:", data);
-      return res.json({
-        reply: "Sorry, I could not prepare a legal answer right now. Please try again."
-      });
-    }
+    res.json({
+      reply: data?.choices?.[0]?.message?.content || "No response"
+    });
 
-    const aiReply = data.choices[0].message.content;
-    res.json({ reply: aiReply });
   } catch (err) {
-    console.error("SERVER ERROR:", err);
-    res.json({ reply: "AI server not responding." });
+    console.error(err);
+    res.json({ reply: "Server error" });
   }
 });
 
-app.listen(5000, () => {
-  console.log("LegalSetu Server running on http://localhost:5000");
-});
+app.listen(process.env.PORT || 5000, () => {
+  console.log("LegalSetu Server running...");
+}
+
+);

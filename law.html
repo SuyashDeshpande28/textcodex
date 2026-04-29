@@ -282,8 +282,8 @@ async function loadLaw() {
       <p id="law-explanation">${law.explanationEnglish}</p>
 
       <div class="verification-status-box ${(law.officialLink || law.referenceLink) ? 'verified' : 'pending'}">
-        <h4>${(law.officialLink || law.referenceLink) ? 'Verification Status: Source Linked' : 'Verification Status: Source To Be Added'}</h4>
-        <p>${(law.officialLink || law.referenceLink) ? 'This law page includes a linked source or legal reference for readers to cross-check.' : 'This law summary is available for awareness, but a source link has not yet been attached on this page.'}</p>
+        <h4>${(law.officialLink || law.referenceLink) ? 'Verification Status: Source Linked' : 'Document Status: Link Not Added Yet'}</h4>
+        <p>${(law.officialLink || law.referenceLink) ? 'This law page includes a linked source or legal reference for readers to cross-check.' : 'This law summary is available for awareness. A supporting document link has not been attached to this entry yet.'}</p>
       </div>
 
       ${law.officialLink ? `
@@ -291,7 +291,7 @@ async function loadLaw() {
           <h4>&#127963;&#65039; Official Government Source</h4>
           <p><strong>${law.officialActName || ''}</strong></p>
           <p style="font-size:0.82rem; color:var(--text-soft); margin-top:4px;">${law.verifiedSource || ''}</p>
-          <a href="${law.officialLink}" target="_blank">&#128216; View Official Document &rarr;</a>
+          <a href="${law.officialLink}" target="_blank">&#128216; View Act &rarr;</a>
         </div>
       ` : ''}
 
@@ -300,7 +300,7 @@ async function loadLaw() {
           <h4>&#128218; Legal Reference</h4>
           <p><strong>${law.referenceLabel || 'Section Reference'}</strong></p>
           <p style="font-size:0.82rem; color:var(--text-soft); margin-top:4px;">${law.referenceSource || ''}</p>
-          <a href="${law.referenceLink}" target="_blank">Open Reference &rarr;</a>
+          <a href="${law.referenceLink}" target="_blank">View Section &rarr;</a>
         </div>
       ` : ''}
     `;

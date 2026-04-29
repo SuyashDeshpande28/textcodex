@@ -496,7 +496,7 @@ async function loadStories() {
   list.innerHTML = '<div class="story-loading">Loading approved stories...</div>';
 
   try {
-    const res = await fetch('http://localhost:5000/api/stories');
+    const res = await fetch('https://legalsetu-8950.onrender.com/api/stories');
     const data = await res.json();
     const stories = Array.isArray(data.stories) ? data.stories : [];
 
@@ -562,7 +562,7 @@ async function submitStory(event) {
   status.className = 'story-form-status is-loading';
 
   try {
-    const res = await fetch('http://localhost:5000/api/stories', {
+    const res = await fetch('https://legalsetu-8950.onrender.com/api/stories', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -626,7 +626,7 @@ async function sendMessage() {
   chatBox.scrollTop = chatBox.scrollHeight;
 
   try {
-    const res = await fetch('http://localhost:5000/chat', {
+    const res = await fetch('https://legalsetu-8950.onrender.com/chat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
